@@ -1,0 +1,9 @@
+plugin: oracle.oci.oci
+
+regions:
+    - ap-hyderabad-1
+
+enable_parallel_processing: yes
+
+groups:
+    njalla: "'njalla_domain' in freeform_tags"
