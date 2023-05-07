@@ -39,18 +39,6 @@ All target Ubuntu instances must have the freeform tags `njalla_domain: <domain 
 1. Set username and ssh authentication in `inventory/group_vars/`
 2. Set [API Token](https://njal.la/settings/api/) for Njalla in `inventory/group_vars/njalla.yml`. Use `inventory/group_vars/njalla.yml.sample` as a reference.
 
-To use more than a single SSH keypair (with passphrases), use ssh-agent to store them.
-
-Run the following command to start `ssh-agent`,
-```
-$ eval "$(ssh-agent -s)"
-```
-
-Add each keypair using the following command,
-```
-$ ssh-add <path to keypair>
-```
-
 ## Deployment
 
 Run the playbook using the following command,
