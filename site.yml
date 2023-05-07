@@ -1,22 +1,22 @@
 ---
-- name: dynamic dns using njalla
+- name: Dynamic dns using njalla
   hosts: njalla
   become: yes
 
   tasks:
-    - name: update repositories
+    - name: Update repositories
       ansible.builtin.apt:
           cache_valid_time: 86400
           update_cache: yes
 
-    - name: install dependencies
+    - name: Install dependencies
       ansible.builtin.apt:
           name:
             - curl
             - jq
           state: present
 
-    - name: create updater script
+    - name: Create updater script
       ansible.builtin.template:
         src: updater.sh.j2
         dest: /root/njalla_updater.sh
@@ -24,7 +24,7 @@
         group: root
         mode: '0700'
 
-    - name: add crontab for updater script
+    - name: Add crontab for updater script
       ansible.builtin.cron:
         name: njalla updater
         special_time: hourly
